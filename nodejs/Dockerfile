@@ -1,6 +1,6 @@
 FROM ssh
-# --- docker build ---
 
+# doc : https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
 RUN apt-get install -y python g++ make checkinstall fakeroot sed
 RUN src=$(mktemp -d) && cd $src
 RUN wget -N http://nodejs.org/dist/node-latest.tar.gz
