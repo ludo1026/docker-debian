@@ -1,7 +1,7 @@
 FROM ssh
 # --- docker build ---
 
-RUN apt-get install python g++ make checkinstall fakeroot sed
+RUN apt-get install -y python g++ make checkinstall fakeroot sed
 RUN src=$(mktemp -d) && cd $src
 RUN wget -N http://nodejs.org/dist/node-latest.tar.gz
 RUN tar xzvf node-latest.tar.gz && cd node-v*
