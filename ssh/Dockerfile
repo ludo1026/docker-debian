@@ -4,7 +4,7 @@ FROM debian:wheezy
 
 # Install
 RUN apt-get update
-RUN apt-get install -y locate nano vim procps curl wget sudo less lsof net-tools
+RUN apt-get install -y locate nano vim procps curl wget sudo less lsof net-tools screen git
 RUN apt-get install -y software-properties-common python-software-properties
 
 RUN apt-get install -y openssh-server
