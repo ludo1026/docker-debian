@@ -5,13 +5,7 @@ RUN apt-get install -y python g++ make checkinstall fakeroot sed
 RUN cd /tmp
 RUN wget -N http://nodejs.org/dist/node-latest.tar.gz
 RUN tar xzvf node-latest.tar.gz
-RUN cd node-v*
-RUN ./configure
-RUN fakeroot checkinstall -y --install=no --pkgversion $(echo $(pwd) | sed -n -re's/.+node-v(.+)$/\1/p') make -j$(($(nproc)+1)) install
-RUN dpkg -i node_*
-
-ADD run.sh /run.sh
-RUN chmod +x /*.sh
+RUN cd node-v* && ./configure && fakeroot checkinstall -y --install=no --pkgversion $(echo $(pwd) | sed -n -re's/.+node-v(.+)$/\1/p') make -j$(($(nproc)+1)) install && dpkg -i node_*
 
 # --- docker run ---
-CMD ["/run.sh"]
+CMD ["/usr/sbin/sshd", "-D"]
