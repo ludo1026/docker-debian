@@ -9,7 +9,9 @@ RUN apt-get install -y software-properties-common python-software-properties
 
 RUN apt-get install -y openssh-server
 RUN mkdir /var/run/sshd
- 
+
+RUN chmod u+s /usr/bin/screen && chmod 755 /var/run/screen
+
 # Users
 RUN useradd -m -p docker docker
 RUN echo 'docker:docker' |chpasswd
